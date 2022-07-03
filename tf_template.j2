@@ -1,0 +1,9 @@
+
+resource "cloudflare_record" "{{ entry.RESOURCE_NAME }}" {
+  zone_id = var.zone_id
+  name = "{{ entry.NAME }}"
+  proxied = "{{ entry.PROXIED }}"
+  type = "{{ entry.TYPE }}"
+  value = "{{ entry.VALUE }}"
+  ttl = "{{ entry.TTL }}"
+}
