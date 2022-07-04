@@ -50,14 +50,14 @@ if not os.path.exists(header_file):
 template_export = open(header_file, "r").read()
 
 # Template Location
-template_file = ""{template_dir}{os.sep}tf_template.j2"
+template_file = f"{template_dir}{os.sep}tf_template.j2"
 # File Check
 if not os.path.exists(template_file):
     print("Template file does not exist! Exiting....")
     exit(code=200)
 
 # Vars Location
-vars_file = ""{template_dir}{os.sep}tf_vars.j2"
+vars_file = f"{template_dir}{os.sep}tf_vars.j2"
 # File Check
 if not os.path.exists(vars_file):
     print("Vars file does not exist! Exiting....")
