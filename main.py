@@ -31,6 +31,7 @@ zone_ID = args.zone_id
 api_Key = args.api_key
 
 # Static Vars ( Don't change! )
+template_dir = "templates"
 content_type = "application/json"
 per_page = 1000
 tf_import_commands = "terraform init \n"
@@ -40,7 +41,7 @@ tf_import_commands = "terraform init \n"
 print(f"Working out of {os.getcwd()}")
 
 # Header Location
-header_file = "tf_header.j2"
+header_file = f"{template_dir}{os.sep}tf_header.j2"
 # File Check
 if not os.path.exists(header_file):
     print("Header file does not exist! Exiting....")
@@ -49,14 +50,14 @@ if not os.path.exists(header_file):
 template_export = open(header_file, "r").read()
 
 # Template Location
-template_file = "tf_template.j2"
+template_file = ""{template_dir}{os.sep}tf_template.j2"
 # File Check
 if not os.path.exists(template_file):
     print("Template file does not exist! Exiting....")
     exit(code=200)
 
 # Vars Location
-vars_file = "tf_vars.j2"
+vars_file = ""{template_dir}{os.sep}tf_vars.j2"
 # File Check
 if not os.path.exists(vars_file):
     print("Vars file does not exist! Exiting....")
