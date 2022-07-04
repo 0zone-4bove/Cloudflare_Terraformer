@@ -32,6 +32,7 @@ api_Key = args.api_key
 
 # Static Vars ( Don't change! )
 template_dir = "templates"
+export_dir = "/var/export"
 content_type = "application/json"
 per_page = 1000
 tf_import_commands = "terraform init \n"
@@ -107,12 +108,12 @@ var_dict = {
 # ===================== Template Files =====================
 
 # Save the vars.tf file
-with open(f'export{os.sep}vars.tf', 'w') as vars_file_w:   
+with open(f'{export_dir}{os.sep}vars.tf', 'w') as vars_file_w:   
     vars_file_w.write(vars_template.render(vars=var_dict))
   
 
 # Save the Cloudflare results
-with open(f'export{os.sep}cf_info.json', 'w') as cf_Info_File:   
+with open(f'{export_dir}{os.sep}cf_info.json', 'w') as cf_Info_File:   
     cf_Info_File.write(cf_info_json)
     
 # ===================== Requesting DNS Records =====================
@@ -179,11 +180,11 @@ tf_import_commands += "pause"
 
 # Save all of the Terraform resources
 print(f"Saving main.tf")
-with open(f'export{os.sep}main.tf', 'w') as cf_main_file:   
+with open(f'{export_dir}{os.sep}main.tf', 'w') as cf_main_file:   
     cf_main_file.write(template_export) 
 
 # Now we generate the terraform import commands
 print(f"Saving tf_imports.ps1")
-with open(f'export{os.sep}tf_imports.ps1', 'w') as tf_import_file:   
+with open(f'{export_dir}{os.sep}tf_imports.ps1', 'w') as tf_import_file:   
     tf_import_file.write(tf_import_commands) 
 
