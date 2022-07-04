@@ -27,10 +27,7 @@ if args.api_key is None:
     exit()
 
 # Vars
-# zone_ID = "85fe16f5c13bf5f3939ebb43447ca419"
 zone_ID = args.zone_id
-
-# api_Key = "Bearer UZQKn68s1XyyxOzhjnORQ3xUfAMijYhi-bzXRCAd"
 api_Key = args.api_key
 
 # Static Vars ( Don't change! )
