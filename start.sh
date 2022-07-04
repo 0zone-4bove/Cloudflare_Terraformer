@@ -10,5 +10,5 @@ echo "Executing Python Script"
 python main.py -z $ZONE_ID -a $API_KEY
 
 # Show results (Debugging)
-pwd
-ls -la /var/export
+cd /var/export
+ls -la 
