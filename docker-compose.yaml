@@ -1,0 +1,10 @@
+version: "3.9"
+   
+services:
+  cloudflare_terraformer:
+    image: cloudflare_terraformer
+    volumes:
+      - ./export:/var/export
+    environment:
+      - API_KEY={FILL_ME}
+      - ZONE_ID={FILL_ME}
