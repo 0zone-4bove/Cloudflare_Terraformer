@@ -81,7 +81,7 @@ vars_template = env.get_template(vars_file)
 
 # Declare Headers
 request_headers = {
-    "Authorization": api_Key,
+    "Authorization": "Bearer " + api_Key,
     "Content-Type": content_type
 }
 
