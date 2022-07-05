@@ -32,7 +32,7 @@ api_Key = args.api_key
 
 # Static Vars ( Don't change! )
 template_dir = "templates"
-export_dir = "/var/export"
+export_dir = "export"
 content_type = "application/json"
 per_page = 1000
 tf_import_commands = "terraform init \n"
@@ -172,19 +172,17 @@ for rec in records:
     # Build TF Import Commands
     tf_import_commands += f"terraform import cloudflare_record.{resource_name} {zone_ID}/{rec_id}\n"
 
-
-# Adding a pause to the end of the imports
-tf_import_commands += "pause"
-
 # ===================== Exporting Terraform and Powershell Files =====================
 
 # Save all of the Terraform resources
-print(f"Saving main.tf")
-with open(f'{export_dir}{os.sep}main.tf', 'w') as cf_main_file:   
+out_file = f'{export_dir}{os.sep}main.tf'
+print(f"Saving main.tf to {out_file}")
+with open(out_file, 'w') as cf_main_file:   
     cf_main_file.write(template_export) 
 
 # Now we generate the terraform import commands
+out_file = f'{export_dir}{os.sep}tf_imports.ps1'
 print(f"Saving tf_imports.ps1")
-with open(f'{export_dir}{os.sep}tf_imports.ps1', 'w') as tf_import_file:   
+with open(out_file, 'w') as tf_import_file:   
     tf_import_file.write(tf_import_commands) 
 
