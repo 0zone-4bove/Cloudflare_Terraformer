@@ -1,10 +1,14 @@
 FROM python:3
 
+# Define working directory (cd)
 WORKDIR /usr/src/app
 
+# Install python requirements
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy app code
 COPY . .
 
+# Start
 CMD [ "bash", "./start.sh" ]
