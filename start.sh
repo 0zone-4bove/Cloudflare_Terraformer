@@ -10,5 +10,9 @@ echo "Executing Python Script"
 python main.py -z $ZONE_ID -a $API_KEY
 
 # Show results (Debugging)
+echo "Exporting to /var/export"
 cd /var/export
+pwd
 ls -la 
+
+# Run the TF Import Commands to generate the Terraform state
